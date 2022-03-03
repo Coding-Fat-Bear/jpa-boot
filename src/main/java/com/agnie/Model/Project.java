@@ -17,7 +17,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Project {
-        private String abc;
-        private String def;
-    
+
+    private String id;
+    private String name;
+    private String company;
+
 }

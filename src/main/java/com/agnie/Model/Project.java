@@ -5,12 +5,19 @@
  */
 package com.agnie.Model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  *
  * @author Lijoe
  */
+@Getter
+@Setter
+@ToString
 public class Project {
-        private String PRJNO;
-        private String PRJDES;
+        private String abc;
+        private String def;
     
 }

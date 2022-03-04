@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.agnie.Service;
+package com.agnie.RestAPI.Service;
 
-import com.agnie.Model.Project;
+import com.agnie.RestAPI.Model.Project;
 import java.util.List;
 
 public interface ProjectService {

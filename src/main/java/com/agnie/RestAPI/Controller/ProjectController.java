@@ -1,7 +1,7 @@
-package com.agnie.Controller;
+package com.agnie.RestAPI.Controller;
 
-import com.agnie.Model.Project;
-import com.agnie.Service.ProjectService;
+import com.agnie.RestAPI.Model.Project;
+import com.agnie.RestAPI.Service.ProjectService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,10 +24,10 @@ public class ProjectController {
     //we mention the interface only autowired to the service
     @Autowired
     private ProjectService getService;
-
+    
     @GetMapping("/get")
     public List<Project> getProjectDetails() {
-        System.out.println("works");
+        System.out.println("get");
         return getService.getProject();
     }
 

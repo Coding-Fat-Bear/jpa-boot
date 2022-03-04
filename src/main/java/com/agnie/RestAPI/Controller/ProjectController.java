@@ -23,22 +23,22 @@ public class ProjectController {
 
     //we mention the interface only autowired to the service
     @Autowired
-    private ProjectService getService;
+    private ProjectService repService;
     
     @GetMapping("/get")
     public List<Project> getProjectDetails() {
         System.out.println("get");
-        return getService.getProject();
+        return repService.getProject();
     }
 
     @GetMapping("/get/{id}")
-    public String getAProjectDetail(@PathVariable long id) {
-        return "Project" + id;
+    public Project getAProjectDetail(@PathVariable long id) {
+        return repService.getproject(id);
     }
 
     @PostMapping("/save")
-    public String saveProject(@RequestBody Project project) {
-        return "saved" + project;
+    public Project saveProject(@RequestBody Project project) {
+        return repService.saveProject(project);
     }
 
     @PutMapping("/put")

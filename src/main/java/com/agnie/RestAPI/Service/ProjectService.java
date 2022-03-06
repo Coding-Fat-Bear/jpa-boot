@@ -13,4 +13,6 @@ public interface ProjectService {
     List<Project> getProject();
     Project saveProject(Project project);
     Project getproject(Long Id);
+    void deleteProject(Long Id);
+    Project updateProject(Long Id,Project project);
 }

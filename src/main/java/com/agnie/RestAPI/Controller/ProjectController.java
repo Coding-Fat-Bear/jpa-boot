@@ -25,30 +25,31 @@ public class ProjectController {
     @Autowired
     private ProjectService repService;
     
+    //fetches all 
+    
     @GetMapping("/get")
     public List<Project> getProjectDetails() {
         System.out.println("get");
         return repService.getProject();
     }
-
+    //fectes data by Id
     @GetMapping("/get/{id}")
     public Project getAProjectDetail(@PathVariable long id) {
         return repService.getproject(id);
     }
-
+    //to add a data to table
     @PostMapping("/save")
     public Project saveProject(@RequestBody Project project) {
         return repService.saveProject(project);
     }
-
+    //to update existing data
     @PutMapping("/put")
     public Project updateProject(@RequestParam long id, @RequestBody Project project) {
-        System.out.println("updated " + id);
-        return project;
+        return repService.updateProject(id,project);
     }
-
+    //Delete by id
     @DeleteMapping("/del")
-    public String delProject(@RequestParam long id) {
-        return "deleted is " + id;
+    public void delProject(@RequestParam long id) {
+         repService.deleteProject(id);
     }
 }

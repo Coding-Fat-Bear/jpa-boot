@@ -37,6 +37,19 @@ public class ProjectServiceImpl implements ProjectService {
         }
         throw new RuntimeException("There is no project for this ID "+Id);
     }
+
+    @Override
+    public void deleteProject(Long Id) {
+        eRepo.deleteById(Id);
+        
+    }
+
+    @Override
+    public Project updateProject(Long Id,Project project) {
+        project.setId(Id);
+        System.out.println(project);
+        return eRepo.save(project);
+    }
     
 
 }

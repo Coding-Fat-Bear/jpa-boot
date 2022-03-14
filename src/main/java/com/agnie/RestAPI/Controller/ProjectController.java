@@ -29,6 +29,10 @@ public class ProjectController {
     private ProjectService repService;
     
     //fetches all 
+    @GetMapping("/")
+    public String login() {
+        return "Logged in successfully";
+    }
     
     @GetMapping("/get")
     public List<Project> getProjectDetails() {

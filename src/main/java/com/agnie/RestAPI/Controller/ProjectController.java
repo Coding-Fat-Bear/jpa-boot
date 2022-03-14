@@ -3,7 +3,9 @@ package com.agnie.RestAPI.Controller;
 import com.agnie.RestAPI.Model.Project;
 import com.agnie.RestAPI.Service.ProjectService;
 import java.util.List;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Lijoe
  */
+@CrossOrigin
 @RestController
 
 public class ProjectController {
@@ -43,13 +46,14 @@ public class ProjectController {
         return repService.saveProject(project);
     }
     //to update existing data
-    @PutMapping("/put")
-    public Project updateProject(@RequestParam long id, @RequestBody Project project) {
+    @PutMapping("/put/{id}")
+    public Project updateProject(@PathVariable long id, @RequestBody Project project) {
         return repService.updateProject(id,project);
     }
     //Delete by id
-    @DeleteMapping("/del")
-    public void delProject(@RequestParam long id) {
+    @DeleteMapping("/del/{id}")
+    public String delProject(@PathVariable long id) {
          repService.deleteProject(id);
+         return "deleted";
     }
 }

@@ -39,9 +39,10 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void deleteProject(Long Id) {
-        eRepo.deleteById(Id);
-        
+    public String deleteProject(Long Id) {
+       
+         eRepo.deleteById(Id);
+         return "deleted";
     }
 
     @Override

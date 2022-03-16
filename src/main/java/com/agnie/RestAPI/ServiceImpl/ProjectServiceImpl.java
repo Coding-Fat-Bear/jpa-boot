@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.agnie.RestAPI.Service;
+package com.agnie.RestAPI.ServiceImpl;
 
 import com.agnie.RestAPI.Model.Project;
 import com.agnie.RestAPI.Repository.ProjectRepository;
+import com.agnie.RestAPI.Service.ProjectService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

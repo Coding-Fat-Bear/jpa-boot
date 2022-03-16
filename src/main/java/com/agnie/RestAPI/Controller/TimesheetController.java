@@ -6,6 +6,7 @@
 package com.agnie.RestAPI.Controller;
 import com.agnie.RestAPI.Model.Timesheet;
 import com.agnie.RestAPI.Service.TimesheetService;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TimesheetController {
     @Autowired
     private TimesheetService timeService;
-    
+   
     @GetMapping("/gettime")
     public List<Timesheet> getTimeDetails() {
         System.out.println("get time");
@@ -47,5 +48,16 @@ public class TimesheetController {
     public Timesheet updateTimesheet(@PathVariable long id, @RequestBody Timesheet timeSheet) {
         return timeService.updateTimesheet(id,timeSheet);
     }
-    
+    @GetMapping("/gettimeBylogin/{loginid}")
+    public List<Timesheet> getTimeDetailByLoginid(@PathVariable long loginid) {
+        return timeService.getTimesheetByLoginid(loginid);
+    }
+    @GetMapping("/gettimeBydate/{tsdate}")
+    public Timesheet getTimeDetailBydate(@PathVariable Date tsdate) {
+        return timeService.getTimesheetBydate(tsdate);
+    }
+    @GetMapping("/gettimeBydateAndloginid/{tsdate}/{loginid}")
+    public Timesheet getTimeDetailBydate(@PathVariable Date tsdate,@PathVariable long loginid) {
+        return timeService.getTimesheetBydateAndLoginid(tsdate,loginid);
+    }
 }

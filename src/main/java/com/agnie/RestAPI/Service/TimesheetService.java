@@ -6,6 +6,7 @@
 package com.agnie.RestAPI.Service;
 
 import com.agnie.RestAPI.Model.Timesheet;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -17,4 +18,7 @@ public interface TimesheetService {
     Timesheet getTimesheet(Long Id);
     Timesheet saveTimesheet(Timesheet timesheet);
     Timesheet updateTimesheet(Long Id,Timesheet timesheet);
+    List<Timesheet> getTimesheetByLoginid(Long loginid);
+    Timesheet getTimesheetBydate(Date tsdate);
+    Timesheet getTimesheetBydateAndLoginid(Date tsdate,Long loginid);
 }

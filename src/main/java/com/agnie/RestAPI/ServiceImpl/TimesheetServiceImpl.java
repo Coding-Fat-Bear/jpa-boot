@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.agnie.RestAPI.Service;
+package com.agnie.RestAPI.ServiceImpl;
 
 import com.agnie.RestAPI.Model.Timesheet;
 import com.agnie.RestAPI.Repository.TimesheetRepository;
+import com.agnie.RestAPI.Service.TimesheetService;
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,18 @@ public class TimesheetServiceImpl implements TimesheetService{
         }
         throw new RuntimeException("There is no project for this ID "+Id);
     }
+    @Override
+    public Timesheet getTimesheetBydateAndLoginid(Date tsdate, Long loginid) {
+        return tRepo.findByTsdateAndLoginid(tsdate, loginid);
+    }
+//    @Override
+//    public Timesheet getTimesheetBydateAndLoginid(Date tsdate, Long loginid) {
+//        Optional<Timesheet> timesheet= tRepo.findByTsdateAndLoginid(tsdate, loginid);
+//        if(timesheet.isPresent()){
+//            return timesheet.get();
+//        }
+//        throw new RuntimeException("There is no project for this ID "+tsdate);
+//    }
 
     @Override
     public Timesheet saveTimesheet(Timesheet timesheet) {
@@ -45,5 +59,17 @@ public class TimesheetServiceImpl implements TimesheetService{
         timesheet.setTimeid(Id);
         return tRepo.save(timesheet);
     }
+
+    @Override
+    public List<Timesheet> getTimesheetByLoginid(Long loginid) {
+        return tRepo.findByLoginid(loginid);
+    }
+
+    @Override
+    public Timesheet getTimesheetBydate(Date tsdate) {
+        return tRepo.findByTsdate(tsdate);
+    }
+
+    
 }
 

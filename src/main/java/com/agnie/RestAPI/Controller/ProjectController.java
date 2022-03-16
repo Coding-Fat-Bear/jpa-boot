@@ -3,7 +3,6 @@ package com.agnie.RestAPI.Controller;
 import com.agnie.RestAPI.Model.Project;
 import com.agnie.RestAPI.Service.ProjectService;
 import java.util.List;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -44,6 +42,7 @@ public class ProjectController {
     public Project getAProjectDetail(@PathVariable long id) {
         return repService.getproject(id);
     }
+    
     //to add a data to table
     @PostMapping("/save")
     public Project saveProject(@RequestBody Project project) {

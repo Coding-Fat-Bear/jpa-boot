@@ -28,7 +28,7 @@ import javax.persistence.Column;
 public class Timesheet {
     
     @Column(name = "LOGINID")
-    private Long LOGINID;
+    private Long loginid;
     @Column(name = "tsdate")
     private Date tsdate;
     @Column(name = "checkin")

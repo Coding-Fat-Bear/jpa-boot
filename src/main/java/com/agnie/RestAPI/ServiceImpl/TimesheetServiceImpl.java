@@ -38,7 +38,17 @@ public class TimesheetServiceImpl implements TimesheetService{
     }
     @Override
     public Timesheet getTimesheetBydateAndLoginid(Date tsdate, Long loginid) {
+        Timesheet timesheet= tRepo.findByTsdateAndLoginid(tsdate, loginid);
+//        System.out.println("output : "+timesheet.getTimeid());
+//        if(timesheet. )
+//            
+//        {
+//            System.out.println("null");
+//        }
+//        System.out.println("output : "+timesheet.getTimeid());
+//        throw new RuntimeException("There is no project for this ID "+tsdate);
         return tRepo.findByTsdateAndLoginid(tsdate, loginid);
+//        return tRepo.findByTsdateAndLoginid(tsdate, loginid);
     }
 //    @Override
 //    public Timesheet getTimesheetBydateAndLoginid(Date tsdate, Long loginid) {

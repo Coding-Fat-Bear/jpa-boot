@@ -1,6 +1,7 @@
 package com.agnie.RestAPI.Controller;
 
 import com.agnie.RestAPI.Model.Project;
+import com.agnie.RestAPI.Repository.ProjectRepository;
 import com.agnie.RestAPI.Service.ProjectService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,7 @@ public class ProjectController {
     //we mention the interface only autowired to the service
     @Autowired
     private ProjectService repService;
-    
-    //fetches all 
+    private  ProjectRepository eRepo;
     @GetMapping("/")
     public String login() {
         return "Logged in successfully";
@@ -55,8 +55,11 @@ public class ProjectController {
     }
     //Delete by id
     @DeleteMapping("/del/{id}")
-    public String delProject(@PathVariable long id) {
+    public void delProject(@PathVariable long id) {
+        boolean exist = eRepo.existsById(id);
+        if (!exist) {
+            throw new RuntimeException("No Record for "+id);
+        }
          repService.deleteProject(id);
-         return "deleted";
     }
 }

@@ -20,5 +20,7 @@ import org.springframework.stereotype.Repository;
 public interface TimesheetRepository extends JpaRepository<Timesheet,Long>{
     List<Timesheet> findByLoginid(Long loginid);
     Timesheet findByTsdate(Date tsdate);
+    
    Optional <Timesheet> findByTsdateAndLoginid(Date tsdate,Long loginid);
+   
 }

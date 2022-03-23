@@ -41,4 +41,12 @@ public class Timesheet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "timeid")
     private Long timeid;
+    @Column(name = "btstart")
+    private Time btstart;
+    @Column(name = "btend")
+    private Time btend;
+    @Column(name = "comment")
+    private String comment;
+    
+    
 }

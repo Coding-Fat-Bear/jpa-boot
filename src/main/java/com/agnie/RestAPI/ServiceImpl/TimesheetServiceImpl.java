@@ -55,8 +55,6 @@ public class TimesheetServiceImpl implements TimesheetService{
           LocalDateTime d2 = LocalDateTime.of(1996, 1,1, timesheet.get().getCheckout().getHours(),timesheet.get().getCheckout().getMinutes());
             LocalDateTime d3 = LocalDateTime.of(1996, 1,2, timesheet.get().getCheckout().getHours(),timesheet.get().getCheckout().getMinutes());
 
-//        LocalDateTime d2 = LocalDateTime.of(1996, 1, 1, 8,25); 
-//        LocalDateTime d3 = LocalDateTime.of(1996, 1, 2, 8,25);
         if (d1.isBefore(d2)) {
             
         }else{
@@ -98,6 +96,8 @@ public class TimesheetServiceImpl implements TimesheetService{
         Duration duration = Duration.between(d1, d2);
         
         long t = duration.toMinutes();
+        if(timesheet.getBtstart()==null)
+        {System.out.println("null");}
         long hours = t / 60;
         long minutes = t % 60;
         String str1 = hours+"."+ minutes;

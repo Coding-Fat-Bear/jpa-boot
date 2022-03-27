@@ -64,7 +64,7 @@ public class TimesheetServiceImpl implements TimesheetService{
         Time tCheckin = timesheet.getCheckin();
         Time tCheckout = timesheet.getCheckout();
         
-        long t1 =  dateDifMin(tCheckin,tCheckout);
+        long t1 =  (dateDifMin(tCheckin,tCheckout))-60;
         long t ;
         if(timesheet.getBtstart()==null || timesheet.getBtend()==null)
                {System.out.println("null");
@@ -76,7 +76,7 @@ public class TimesheetServiceImpl implements TimesheetService{
                    Time tBtstart = timesheet.getBtstart();
                     Time tBtend = timesheet.getBtend();
                     long t2 =  dateDifMin(tBtstart,tBtend);
-                    t= t1-t2;
+                    t= t1-t2-60;
                }
         
         

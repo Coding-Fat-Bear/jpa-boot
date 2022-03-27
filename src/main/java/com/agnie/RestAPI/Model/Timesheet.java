@@ -45,6 +45,8 @@ public class Timesheet {
     private Time btstart;
     @Column(name = "btend")
     private Time btend;
+    @Column(name = "breakflag")
+    private String breakflag;
     @Column(name = "comment")
     private String comment;
     

@@ -22,7 +22,7 @@ public class TimesheetLogic {
         Time tCheckin = timesheet.getCheckin();
         Time tCheckout = timesheet.getCheckout();
         //////calculating 
-        long t1 =  (dateDifMin(tCheckin,tCheckout))-60;  ////worktime with no adjustments
+        long t1 =  (dateDifMin(tCheckin,tCheckout));  ////worktime with no adjustments
         System.out.println("t1: "+t1);
         long t =0;
         long t2 = 0;  ////Breaktime

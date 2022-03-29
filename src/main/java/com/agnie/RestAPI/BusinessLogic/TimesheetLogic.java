@@ -48,7 +48,7 @@ public class TimesheetLogic {
         if(timesheet.getOtend()==null || timesheet.getOtstart()==null )
             {
                 System.out.println("null");
-                t3 = 60;
+                t3 = 0;
                  }
 
                else{
@@ -58,11 +58,11 @@ public class TimesheetLogic {
                     t3 =  dateDifMin(totstart,totend);
             }
         
-        /////calculating  overtime t4/////
+        /////calculating  overtime breakl t4/////
         if(timesheet.getOtbtstart()==null || timesheet.getOtbtend()==null )
             {
                 System.out.println("null");
-                t4 = 60;
+                t4 = 0;
                  }
 
                else{
@@ -74,10 +74,13 @@ public class TimesheetLogic {
         
         
         
+        System.out.println("t1: "+t1);
+        System.out.println("t2: "+t2);
+        System.out.println("t3: "+t3);
+        System.out.println("t4: "+t4);
         
         
-        
-        t=t1-t2-t3-t4;
+        t=t1-t2+t3-t4;
         System.out.println("t: "+t);
         long hours = t / 60;
         long minutes = t % 60;

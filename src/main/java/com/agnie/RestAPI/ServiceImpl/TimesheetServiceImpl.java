@@ -61,7 +61,6 @@ public class TimesheetServiceImpl implements TimesheetService{
         
         double worktime = timesheetLogic.workTimeCalc(timesheet); 
         System.out.println("method called : " +timesheetLogic.workTimeCalc(timesheet));
-        System.out.println("wortime"+worktime);
         timesheet.setTotalhours(worktime);
 //        System.out.println("**************"+worktime);
         return tRepo.save(timesheet);

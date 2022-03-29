@@ -21,23 +21,63 @@ public class TimesheetLogic {
          ///////////CheckTime//////////////////
         Time tCheckin = timesheet.getCheckin();
         Time tCheckout = timesheet.getCheckout();
-        long t1 =  (dateDifMin(tCheckin,tCheckout))-60;
+        //////calculating 
+        long t1 =  (dateDifMin(tCheckin,tCheckout))-60;  ////worktime with no adjustments
         System.out.println("t1: "+t1);
         long t =0;
+        long t2 = 0;  ////Breaktime
+        long t3 = 0;  ////overtime
+        long t4 = 0; ////overtime break
         
+        /////calculating  custom breaktime t2/////
         if(timesheet.getBtstart()==null || timesheet.getBtend()==null ||timesheet.getBreakflag()==null)
             {
                 System.out.println("null");
-                t = t1;
+                t2 = 60;
                  }
 
                else{
                    System.out.println("not null");
                    Time tBtstart = timesheet.getBtstart();
                     Time tBtend = timesheet.getBtend();
-                    long t2 =  dateDifMin(tBtstart,tBtend);
-                    t= t1-t2;
+                    t2 =  dateDifMin(tBtstart,tBtend);
             }
+        
+        
+        /////calculating  overtime t3/////
+        if(timesheet.getOtend()==null || timesheet.getOtstart()==null )
+            {
+                System.out.println("null");
+                t3 = 60;
+                 }
+
+               else{
+                   System.out.println("not null");
+                   Time totstart = timesheet.getOtstart();
+                    Time totend = timesheet.getOtend();
+                    t3 =  dateDifMin(totstart,totend);
+            }
+        
+        /////calculating  overtime t4/////
+        if(timesheet.getOtbtstart()==null || timesheet.getOtbtend()==null )
+            {
+                System.out.println("null");
+                t4 = 60;
+                 }
+
+               else{
+                   System.out.println("not null");
+                   Time totBtstart = timesheet.getOtbtstart();
+                    Time totBtend = timesheet.getOtbtend();
+                    t4 =  dateDifMin(totBtstart,totBtend);
+            }
+        
+        
+        
+        
+        
+        
+        t=t1-t2-t3-t4;
         System.out.println("t: "+t);
         long hours = t / 60;
         long minutes = t % 60;
@@ -48,9 +88,7 @@ public class TimesheetLogic {
             else{
                 str1 = hours+"."+ minutes;
             }
-            System.out.println("string: "+ str1);
         double d=Double.parseDouble(str1); 
-        System.out.println(d);
         return d;
     }
     
@@ -59,8 +97,7 @@ public class TimesheetLogic {
       LocalDateTime d1 = LocalDateTime.of(1996,1,1,t1.getHours(),t1.getMinutes());
       LocalDateTime d2 = LocalDateTime.of(1996,1,1,t2.getHours(),t2.getMinutes());
       LocalDateTime d3 = LocalDateTime.of(1996,1,2,t2.getHours(),t2.getMinutes());
-        System.out.println(d1);
-        System.out.println(d2);
+      
         if (d1.isBefore(d2)) {
 
         }
@@ -69,7 +106,7 @@ public class TimesheetLogic {
         }
     Duration duration = Duration.between(d1, d2);
     long t = duration.toMinutes();
-        
+         System.out.println("livereload ");
         return t;
                 
     }

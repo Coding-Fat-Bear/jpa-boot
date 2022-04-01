@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.agnie.RestAPI.Controller;
+package com.agnie.RestAPI.Service;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.agnie.RestAPI.Model.Login;
 
 /**
  *
- * @author Lijoe
+ * @author Welcome
  */
-@RestController
-public class ProjectTimeController {
+
+public interface LoginService {
+    
+    Login login(String username,String password);
+
     
 }

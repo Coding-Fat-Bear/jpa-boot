@@ -7,6 +7,8 @@ package com.agnie.RestAPI.Controller;
 
 import com.agnie.RestAPI.Model.Inquiry;
 import com.agnie.RestAPI.Service.InquiryService;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
     @RestController
 public class InquiryController {
         
-        //autowire the EstimationService class
+        //autowire the inquiryService class
     @Autowired
     InquiryService inqService;
     

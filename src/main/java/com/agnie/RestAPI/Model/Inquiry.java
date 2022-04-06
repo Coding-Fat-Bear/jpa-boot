@@ -6,6 +6,8 @@
 package com.agnie.RestAPI.Model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -88,5 +90,9 @@ public class Inquiry implements Serializable {
         private String credt;
         @Column
         private String cretim;
-    
+        
+//               LocalDate localDate = LocalDate.now();
+//               LocalTime localTime = LocalTime.now();
+               
+
 }

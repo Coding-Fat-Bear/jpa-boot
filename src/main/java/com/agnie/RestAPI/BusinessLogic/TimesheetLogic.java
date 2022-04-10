@@ -30,17 +30,29 @@ public class TimesheetLogic {
         long t4 = 0; ////overtime break
         
         /////calculating  custom breaktime t2/////
-        if(timesheet.getBtstart()==null || timesheet.getBtend()==null ||timesheet.getBreakflag()==null)
+        if(timesheet.getBtstart()==null || timesheet.getBtend()==null || timesheet.getBreakflag()==null)
             {
                 System.out.println("null");
-                t2 = 60;
+                if(timesheet.getBreakflag().length() == 0){  
+                        t2 = 60;
+                    }
+                
                  }
 
                else{
+                if(timesheet.getBreakflag()!= null){
+                    if(timesheet.getBreakflag() == "X"){
+                        t2 =0;
+                    }
+                
+                }else{
+                    if(timesheet.getBreakflag() == "X"){
+                        t2 = 0;
+                    }else{
                    System.out.println("not null");
                    Time tBtstart = timesheet.getBtstart();
                     Time tBtend = timesheet.getBtend();
-                    t2 =  dateDifMin(tBtstart,tBtend);
+                    t2 =  dateDifMin(tBtstart,tBtend);}}
             }
         
         

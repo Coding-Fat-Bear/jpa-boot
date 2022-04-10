@@ -15,6 +15,6 @@ import com.agnie.RestAPI.Model.Login;
 public interface LoginService {
     
     Login login(String username,String password);
-
+    Login getlogin(long id);
     
 }

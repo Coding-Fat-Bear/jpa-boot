@@ -58,6 +58,8 @@ public class Timesheet {
     private Time otbtstart;
     @Column(name = "otbtend")
     private Time otbtend;
+    @Column(name = "daytype")
+    private String daytype;
     
     
 }

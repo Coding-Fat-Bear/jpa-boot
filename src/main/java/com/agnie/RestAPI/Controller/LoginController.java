@@ -41,5 +41,11 @@ public class LoginController {
        System.out.println("post");
         return logService.login(username,password);
     } 
+//  
+    @GetMapping("/getlogin/{id}")
+    public Login getlogin(@PathVariable long id) {
+        return logService.getlogin(id);
+    }
+    
     
 }

@@ -30,6 +30,7 @@ public class LoginServiceimpl implements LoginService{
         Optional<Login> login= LogRepo.findByUsernameAndPassword(username, password);
         if(login.isPresent()){
 //            System.out.println("return"+login.get());
+            System.out.println(login.get());
             return login.get();
              
         }else{
@@ -37,5 +38,12 @@ public class LoginServiceimpl implements LoginService{
         }
     }
 
-    
+    @Override
+    public Login getlogin(long id) {
+        Optional<Login> login= LogRepo.findById(id);
+        if(login.isPresent()){
+            return login.get();
+        }
+        throw new UnsupportedOperationException("No records found yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,11 +5,16 @@
  */
 package com.agnie.RestAPI.Model;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,8 +50,8 @@ public class Employee {
     @Column(name = "GENDER")
     private String gender;
     
-    @Column(name = "ADDNO")
-    private String addno;
+//    @Column(name = "ADDNO")
+//    private String addno;
     
     @Column(name = "BIZID")
     private String bizid;
@@ -105,6 +110,9 @@ public class Employee {
     @Column(name = "STATBEN")
     private String statben;
     
+    @Column(name = "CONALW")
+    private String conalw;
+    
     @Column(name = "HRALW")
     private String hralw;
     
@@ -128,6 +136,14 @@ public class Employee {
     
     @Column(name = "ACTENDT")
     private String actendt;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ADDNO")
+    private Address address;
+    
+    @OneToMany(targetEntity = Employeerole.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "EMPCOD")
+    private List<Employeerole> employeerole;
     
      
 }

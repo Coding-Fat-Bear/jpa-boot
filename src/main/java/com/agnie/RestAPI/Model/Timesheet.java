@@ -48,7 +48,6 @@ public class Timesheet {
     @Column(name = "breakflag")
     private String breakflag;
     @Column(name = "comment")
-    
     private String comment;
     @Column(name = "otstart")
     private Time otstart;

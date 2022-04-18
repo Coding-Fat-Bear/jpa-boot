@@ -55,7 +55,6 @@ public class TimesheetServiceImpl implements TimesheetService{
         
     }
 
-
     @Override
     public Timesheet saveTimesheet(Timesheet timesheet) {
         
@@ -80,6 +79,11 @@ public class TimesheetServiceImpl implements TimesheetService{
     @Override
     public Timesheet getTimesheetBydate(Date tsdate) {
         return tRepo.findByTsdate(tsdate);
+    }
+
+    @Override
+    public List<Timesheet> getTimesheetBymonthandyear(int month, int year, int id) {
+        return tRepo.getByYearAndMonth(month, year, id);
     }
     
 }

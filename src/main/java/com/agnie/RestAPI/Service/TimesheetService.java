@@ -21,4 +21,5 @@ public interface TimesheetService {
     List<Timesheet> getTimesheetByLoginid(Long loginid);
     Timesheet getTimesheetBydate(Date tsdate);
     Timesheet getTimesheetBydateAndLoginid(Date tsdate,Long loginid);
+    List<Timesheet> getTimesheetBymonthandyear(int month,int year,int id);
 }

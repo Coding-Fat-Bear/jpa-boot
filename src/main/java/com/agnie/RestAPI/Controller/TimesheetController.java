@@ -60,4 +60,8 @@ public class TimesheetController {
     public Timesheet getTimeDetailBydate(@PathVariable Date tsdate,@PathVariable long loginid) {
         return timeService.getTimesheetBydateAndLoginid(tsdate,loginid);
     }
+    @GetMapping("/gettimeBymonthandyear/{month}/{year}/{id}")
+    public List<Timesheet> getTimeDetailByMonthAndYear(@PathVariable int month,@PathVariable int year,@PathVariable int id) {
+        return timeService.getTimesheetBymonthandyear(month,year,id);
+    }
 }

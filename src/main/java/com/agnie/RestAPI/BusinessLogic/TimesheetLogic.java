@@ -31,40 +31,41 @@ public class TimesheetLogic {
         
         /////calculating  custom breaktime t2/////
         if(timesheet.getBtstart()==null || timesheet.getBtend()==null || timesheet.getBreakflag()==null)
-            {
-                System.out.println("null");
-                if(timesheet.getBreakflag().length() == 0){  
-                        t2 = 60;
-                    }
-                
-                 }
-
-               else{
-                if(timesheet.getBreakflag()!= null){
-                    if(timesheet.getBreakflag() == "X"){
+                {
+                    if(timesheet.getBreakflag().length() == 0){  
+                            t2 = 60;
+                        }
+                }
+                 
+            else{
+            
+                if(timesheet.getBreakflag().length() == 1){
+                    System.out.println("b5");
+//                    if(timesheet.getBreakflag() == "X"){
                         t2 =0;
-                    }
-                
-                }else{
-                    if(timesheet.getBreakflag() == "X"){
-                        t2 = 0;
-                    }else{
-                   System.out.println("not null");
-                   Time tBtstart = timesheet.getBtstart();
-                    Time tBtend = timesheet.getBtend();
-                    t2 =  dateDifMin(tBtstart,tBtend);}}
+//                    }
+                }
+                else{
+//                        System.out.println("b6");
+//                        if(timesheet.getBreakflag() == "X"){
+//                            t2 = 0;
+//                        }else
+//                        {
+                       Time tBtstart = timesheet.getBtstart();
+                        Time tBtend = timesheet.getBtend();
+                        t2 =  dateDifMin(tBtstart,tBtend);
+//                        }
+                     }
+            
             }
-        
         
         /////calculating  overtime t3/////
         if(timesheet.getOtend()==null || timesheet.getOtstart()==null )
             {
-                System.out.println("null");
                 t3 = 0;
                  }
 
                else{
-                   System.out.println("not null");
                    Time totstart = timesheet.getOtstart();
                     Time totend = timesheet.getOtend();
                     t3 =  dateDifMin(totstart,totend);
@@ -73,19 +74,17 @@ public class TimesheetLogic {
         /////calculating  overtime breakl t4/////
         if(timesheet.getOtbtstart()==null || timesheet.getOtbtend()==null )
             {
-                System.out.println("null");
                 t4 = 0;
                  }
 
                else{
-                   System.out.println("not null");
                    Time totBtstart = timesheet.getOtbtstart();
                     Time totBtend = timesheet.getOtbtend();
                     t4 =  dateDifMin(totBtstart,totBtend);
             }
         
         
-        
+        System.out.println("breakflag: "+ timesheet.getBreakflag());
         System.out.println("t1: "+t1);
         System.out.println("t2: "+t2);
         System.out.println("t3: "+t3);
@@ -121,7 +120,6 @@ public class TimesheetLogic {
         }
     Duration duration = Duration.between(d1, d2);
     long t = duration.toMinutes();
-         System.out.println("livereload ");
         return t;
                 
     }
